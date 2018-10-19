@@ -9,7 +9,12 @@ router.get('/guests', async(req, res) => {
   res.json(data)
 });
 
-router.post('/addGuests',async(req,res)=>{
+router.get('/guest', async(req, res) => {
+  let data = await guest.findAll()
+  res.json(data)
+});
+
+router.post('/guest',async(req,res)=>{
   try {
     const {fullName,company} = req.body
     let data = await guest.create({
@@ -23,7 +28,7 @@ router.post('/addGuests',async(req,res)=>{
   
 })
 
-router.delete('/removeGuests/:id',async(req,res)=>{
+router.delete('/guest/:id',async(req,res)=>{
   try {
     const {id} = req.params
     await guest.destroy({
@@ -35,7 +40,7 @@ router.delete('/removeGuests/:id',async(req,res)=>{
   }
 })
 
-router.put('/updateGuests/:id',async(req,res)=>{
+router.put('/guest/:id',async(req,res)=>{
   try {
     const {fullName,company} = req.body
     const {id} = req.params
