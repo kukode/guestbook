@@ -11,8 +11,17 @@ module.exports = {
       fullName: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
+      phoneNumber: {
+        type: Sequelize.STRING
+      },
       company: {
         type: Sequelize.STRING
+      },
+      description : {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

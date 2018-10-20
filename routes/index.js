@@ -16,10 +16,13 @@ router.get('/guest', async(req, res) => {
 
 router.post('/guest',async(req,res)=>{
   try {
-    const {fullName,company} = req.body
+    const {fullName,email,phoneNumber,company,description} = req.body
     let data = await guest.create({
         fullName,
-        company
+        email,
+        phoneNumber,
+        company,
+        description
     })
     res.json(data)
   } catch (error) {
@@ -42,12 +45,15 @@ router.delete('/guest/:id',async(req,res)=>{
 
 router.put('/guest/:id',async(req,res)=>{
   try {
-    const {fullName,company} = req.body
+    const {fullName,email,phoneNumber,company,description} = req.body
     const {id} = req.params
     const data = await guest.update(
       {
         fullName,
-        company
+        email,
+        phoneNumber,
+        company,
+        description
       },
       {where : {id:id}}
     )
